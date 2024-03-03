@@ -5,8 +5,8 @@
 
 
 
-  --default-background: #F3EEEA;
-  --background-light: #F3EEEA;
+  --default-background: #e3ffd6;
+  --background-light: #65c658;
   --background-dark: #387ADF;
   --color-dark: #3c00ff;
   --color-light: #B0A695;
@@ -124,7 +124,7 @@ input {
 /* navbar */
 .nav {
   min-width: 100vw;
-  background: white;
+  background: rgb(255, 236, 236);
   padding-top: 2rem;
   padding-bottom: 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -343,7 +343,7 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+background: white;
   box-shadow: 0 0 5px var(--color-light);
   border-radius: .5rem;
   transition: all .4s ease-in-out;
