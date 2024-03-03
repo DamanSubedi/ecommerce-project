@@ -512,18 +512,15 @@ input {
 }
 
 .detail .img_container {
-  border-radius: 2rem;
-  padding: 2rem;
   background: white;
   box-shadow: 0 0 10px gray;
   height: fit-content;
   margin-bottom: 4rem;
+  overflow: hidden;
 }
 
 .detail_center .img_container img {
   width: 100%;
-  border-radius: inherit;
-
 }
 
 .product_info h3 {
