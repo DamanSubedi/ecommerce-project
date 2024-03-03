@@ -28,26 +28,26 @@ export default function Product({ products }) {
 
 
                                     <div className="product" key={id}>
-                                        <Link to='/details'
-                                        onClick={()=>selectedItem(id)}
-                                        className="product_container">
 
-                                            <div className="img_container">
-                                                <img className="img_top" src={images[0]} alt={title} />
-                                            </div>
 
-                                            <h3>{title}</h3>
-                                            <h6>Rs. {price}</h6>
-                                            <h6 >{category}</h6>
-                                            <p>
-                                                {description.substring(0, 50)}...
-                                                <Link to='/details' className="btn_white"
-                                                    onClick={() => { selectedItem(id) }}>
-                                                    see More
-                                                </Link>
-                                            </p>
-
+                                        <Link className="img_container"
+                                            to='/details'
+                                            onClick={() => selectedItem(id)}
+                                        >
+                                            <img className="img_top" src={images[0]} alt={title} />
                                         </Link>
+
+                                        <h3>{title}</h3>
+                                        <h6>Rs. {price}</h6>
+                                        <h6 >{category}</h6>
+                                        <p>
+                                            {description.substring(0, 50)}...
+                                            <Link to='/details' className="btn_white"
+                                                onClick={() => { selectedItem(id) }}>
+                                                see More
+                                            </Link>
+                                        </p>
+
                                         <button className="cart"
                                             onClick={() => addToCart(id)}
                                             disabled={inCart ? true : false}
