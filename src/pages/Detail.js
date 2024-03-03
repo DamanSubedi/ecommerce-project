@@ -38,28 +38,16 @@ class Detail extends Component {
         return (
             <section className="detail">
                 <div className="detail_container">
-
-
-
-
-
-
-
                     <div className="detail_center" key={id}>
-
                         <div className="img_container">
                             <img className="img_top" src={images[0]} alt={title} />
                         </div>
                         <div className="product_info">
-
                             <h3>{title}</h3>
                             <h6>Rs. {price}</h6>
                             <h6 >{category}</h6>
                             <p>{description}</p>
-
                             <div className="modal_btn_container">
-
-
                                 <button className="btn_primary cart_btn"
                                     onClick={() => addToCart(id)}
                                     disabled={inCart ? true : false}
@@ -80,10 +68,7 @@ class Detail extends Component {
                                         </>
                                         )}
                                 </button>
-
-                                <button className="btn_primary"
-
-                                >
+                                <button className="btn_primary"                                >
                                     <Link to='/store'>
                                         <i>
                                             <FaStoreAlt />
@@ -93,20 +78,8 @@ class Detail extends Component {
                                 </button>
                             </div>
                         </div>
-
-
-
                     </div>
-
-
-
-
-
-
                 </div>
-
-
-
             </section>
         )
     }

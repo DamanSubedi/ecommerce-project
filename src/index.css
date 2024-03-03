@@ -325,13 +325,13 @@ input {
 
 /* error starts here */
 
-.error{
+.error {
   display: grid;
   place-items: center;
-  height:calc(100vh - 94px)
+  height: calc(100vh - 94px)
 }
 
-.error_container{
+.error_container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -341,7 +341,7 @@ input {
 
 /* product starts here */
 
-.product{
+.product {
   position: relative;
   position: relative;
   display: flex;
@@ -421,17 +421,17 @@ input {
     transition: all .6s linear;
     cursor: pointer;
   }
-  
+
   .product:hover {
     box-shadow: 0 0 10px black;
   }
-  
+
   .product:hover .cart {
     color: var(--logo-color);
     transform: translate(-20%, 20%);
     opacity: 1;
   }
-  
+
   .product:hover .img_top {
     transform: scale(1.1);
   }
@@ -469,32 +469,35 @@ input {
   border-radius: 1rem;
 }
 
-.modal_container .img_container{
+.modal_container .img_container {
   width: 100%;
   border-radius: inherit;
   height: 100%;
-}
-.modal_container .img_container img{
-  width: 100%;
-  height: 100%;
+  object-position: center;
 }
 
-.modal_container h3{
+.modal_container .img_container img {
+  width: 100%;
+}
+
+.modal_container h3 {
+  font-size: 1.5rem;
   padding: 1rem;
   text-align: center;
 }
 
-.modal_container h6{
-  margin: .5rem auto;
+.modal_container h6 {
+  margin: .2rem auto;
   font-weight: 500;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
-.modal_container p{
+.modal_container p {
   font-weight: 500;
   padding: 0 1rem;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  margin: .5rem;
 }
 
 .modal_close_btn {
@@ -504,6 +507,8 @@ input {
   font-size: 2rem;
   z-index: 2;
 }
+
+
 
 .modal_btn_container {
   display: flex;
@@ -579,12 +584,13 @@ input {
 /* cart starts here */
 
 .empty_cart {
+  width: 90vw;
   display: grid;
   place-items: center;
   height: calc(100vh - 94px);
 }
 
-.empty_cart_container{
+.empty_cart_container {
   display: grid;
   place-content: center;
 }
@@ -600,28 +606,44 @@ input {
   margin: 2rem auto;
 }
 
+
+.cart_item_center {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+
 .cart_item {
+
   display: flex;
   justify-content: space-between;
   margin: 3rem 0;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .cart_item_info {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  gap: 1rem;
   align-items: center;
 }
 
 
+
 .cart_item_info .img_container img {
-  width: 10rem;
+  width: 100%;
+  height: 12rem;
   border-radius: 1rem;
+  float: left;
 }
 
-.item_info:last-child{
+.item_info:last-child {
   font-size: 1rem;
 }
+
+
 
 .item_info h3 {
   font-weight: 500;
@@ -635,29 +657,53 @@ input {
 }
 
 
-.count_fnc_container {
-  display: grid;
-  place-items: center;
+.count_fnc_center {
+  display: flex;
+
+  align-items: center;
+  margin-right: 1rem;
 
 }
 
-.count_fnc_container span {
+
+.count_fnc_center span {
   width: 3rem;
   height: 3rem;
   font-size: 1.3rem;
   display: grid;
   place-items: center;
+
 }
 
 .count_btn {
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   font-size: 1.5rem;
   border: 2px solid blue;
   display: grid;
   place-items: center;
-  margin: 1rem 0;
+  margin: .5rem 1rem;
 }
+
+@media screen and (min-width: 768px) {
+
+
+  .cart_item_center {
+
+    /* width: 80%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+
+  .count_fnc_center {
+    flex-direction: column;
+  }
+}
+
 
 
 
@@ -671,35 +717,45 @@ input {
 .cart_total {
   width: 100vw;
   max-width: 800px;
-  padding: 3rem;
 }
 
 .cart_total_container {
-  width: 50%;
+  width: 100%;
   float: right;
   display: grid;
   place-items: center;
   background: rgba(0, 0, 255, 0.1);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   padding: 1rem;
-border-radius: 1rem;
+  border-radius: 1rem;
 }
 
-.cart_total_center{
+.cart_total_center {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 1.5rem;
   grid-row-gap: 1.5rem;
 }
 
-.cart_total_center > *{
+.cart_total_center>* {
   font-size: 1.5rem;
   font-weight: 500;
 }
 
 
+@media screen and (min-width: 768px) {
 
+  .cart_total {
+    padding: 3rem;
+  }
+
+
+  .cart_total_container {
+    width: 50%;
+  }
+
+}
 
 
 
 /* cart_total ends here */
-

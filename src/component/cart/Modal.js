@@ -35,7 +35,7 @@ export default function Modal() {
                                     <FaTimes />
                                 </button>
                                 <div className="img_container">
-                                    <img className="img_top" src={images[0]} alt={title} />
+                                    <img className="img_top" src={images[0]} alt={title}/>
                                 </div>
 
                                 <h3>{title}</h3>

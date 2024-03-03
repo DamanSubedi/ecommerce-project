@@ -32,21 +32,19 @@ export default function Cart() {
                     const { id, title, price, tax, total, count, images } = item
                     return (
                         <div className="cart_item" key={id}>
-                            <div className="cart_item_info">
-                                <div className="img_container">
-                                    <img src={images[0]} alt={title} />
+                            <div className="cart_item_center">
+                                <div className="cart_item_info">
+                                    <div className="img_container">
+                                        <img src={images[0]} alt={title} />
+                                    </div>
+                                    <div className="item_info">
+                                        <h3>{title}</h3>
+                                        <h6>price: Rs {price}</h6>
+                                        <h6>total : Rs {total}</h6>
+                                        <h6>tax : {tax}</h6>
+                                    </div>
                                 </div>
-                                <div className="item_info">
-                                    <h3>{title}</h3>
-                                    <h6>price: Rs {price}</h6>
-                                    <h6>total : Rs {total}</h6>
-                                    <h6>tax : {tax}</h6>
-                                    <button onClick={() => removeItem(id)} className="btn_white cart">
-                                        remove
-                                    </button>
-                                </div>
-                            </div>
-                            <div className="count_fnc_container">
+
                                 <div className="count_fnc_center">
                                     <button className="count_btn"
                                         onClick={() => increase(id)}>
@@ -57,11 +55,17 @@ export default function Cart() {
                                         onClick={() => decrease(id)}>
                                         -
                                     </button>
+                                    <button onClick={() => removeItem(id)} className="btn_white cart">
+                                        remove
+                                    </button>
                                 </div>
                             </div>
+
+
                         </div>
                     )
                 })}
+
             </div>
 
             <CartTotal />
