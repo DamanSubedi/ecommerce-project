@@ -43,7 +43,7 @@ export default function Product({ products, handleClick }) {
                                         <h6 >{category}</h6>
                                         <p>
                                             {description.substring(0, 50)}...
-                                            <Link to='/details' className="btn_white"
+                                            <Link to={`/store/${id}`} className="btn_white"
                                                 onClick={() => { selectedItem(id) }}>
                                                 see More
                                             </Link>

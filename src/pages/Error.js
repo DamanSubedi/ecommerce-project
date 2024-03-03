@@ -16,7 +16,7 @@ export default function Error() {
                 <Link to="/store"
                     className="btn_primary"
                 >
-                    <i><FaStoreAlt /></i><span>store</span>
+                    <i><FaStoreAlt /></i>store
                 </Link>
             </div>
         </section>

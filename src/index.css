@@ -42,6 +42,7 @@ h1 {
 }
 
 h2 {
+  margin-top: 3rem;
   font-size: 2.5rem;
 
 }
@@ -60,7 +61,7 @@ h6 {
 
 p,
 span {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
@@ -71,8 +72,7 @@ button {
 
 i {
   margin-right: 1rem;
-  font-size: 1.5rem;
-  transform: translateY(10%);
+  font-size: 1.2rem;
 }
 
 input {
@@ -83,14 +83,16 @@ input {
 
 .btn_primary {
   font-size: 1rem;
-  font-weight: bold;
   padding: .5rem 2rem;
   background: white;
+  font-weight: bold;
   border-radius: .5rem;
   color: var(--color-dark);
   transition: all .5s ease-in-out;
   cursor: pointer;
   margin: 1rem auto;
+  display: flex;
+  border: 2px solid var(--logo-color);
 }
 
 .btn_primary:hover {
@@ -100,7 +102,6 @@ input {
 
 .btn_white {
   color: var(--color-dark);
-  font-weight: 500;
   cursor: pointer;
   transition: all .3s linear;
 }
@@ -139,7 +140,7 @@ input {
 }
 
 .logo h4 {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
 }
 
 .logo h4 span {
@@ -154,6 +155,7 @@ input {
 
 .link_container a {
   font-size: 1.5rem;
+  font-weight: 500;
   margin-left: 2rem;
   color: var(--color-dark);
   display: flex;
@@ -233,7 +235,7 @@ input {
   }
 
   .btn_primary {
-    font-size: 1.7rem;
+    font-size: 1.2rem;
   }
 
   .link_container a span {
@@ -249,12 +251,6 @@ input {
 
 }
 
-@media screen and (min-width:1024px) {
-  html {
-    font-size: 90%;
-  }
-
-}
 
 
 /* store starts here */
@@ -392,6 +388,7 @@ input {
   letter-spacing: .1rem;
   margin: 1rem;
   text-align: center;
+  text-transform: none;
 }
 
 .product .cart {

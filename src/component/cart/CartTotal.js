@@ -23,10 +23,7 @@ export default function () {
                     <h6>: Rs {totalAmt}</h6>
 
                 </div>
-                <button className="btn_primary cart_btn"
-                    onClick={clearCart}>
-                    clear cart
-                </button>
+
             </aside>
         </section>
     )

@@ -7,7 +7,7 @@ import { FaStoreAlt } from "react-icons/fa"
 
 export default function Cart() {
     const cart = useContext(StoreContext)
-    const { cartItems, increase, decrease, removeItem, cartTotal } = cart
+    const { cartItems, increase, decrease, removeItem, cartTotal, clearCart } = cart
     if (cartItems.length < 1) {
         return (<>
             <section className="empty_cart">
@@ -27,6 +27,8 @@ export default function Cart() {
     // console.log(cartItems)
     return (
         <section className="cart">
+            <h2>Your Cart</h2>
+
             <div className="cart_container">
                 {cartItems.map(item => {
                     const { id, title, price, tax, total, count, images } = item
@@ -67,7 +69,10 @@ export default function Cart() {
                 })}
 
             </div>
-
+            <button className="btn_primary cart_btn"
+                onClick={clearCart}>
+                clear cart
+            </button>
             <CartTotal />
         </section >
     )

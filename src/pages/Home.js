@@ -1,3 +1,4 @@
+import { FaStoreAlt } from 'react-icons/fa'
 import Banner from '../component/Banner'
 import Hero from '../component/Hero'
 import { Link } from 'react-router-dom'
@@ -11,7 +12,7 @@ export default function Home() {
                     title="XYZdeals.com">
                     <Link to="/store"
                         className='btn_primary'>
-                        store
+                        <i><FaStoreAlt/></i>store
                     </Link>
                 </Banner>
             </Hero>

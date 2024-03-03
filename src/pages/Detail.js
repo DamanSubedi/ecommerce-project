@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { StoreContext } from "../component/context";
 import { BsFillCartCheckFill } from "react-icons/bs";
-import { FaCartPlus, FaStoreAlt } from "react-icons/fa";
+import { FaCartPlus, FaStoreAlt, FaLuggageCart } from "react-icons/fa";
 
 // importing css
 import "../index.css"
@@ -22,7 +22,7 @@ class Detail extends Component {
 
     render() {
 
-        const { getItem, addToCart } = this.context
+        const { getItem, addToCart, closeModal } = this.context
         let singleProduct = getItem(Number(this.state.id))
 
 
@@ -49,7 +49,10 @@ class Detail extends Component {
                             <p>{description}</p>
                             <div className="modal_btn_container">
                                 <button className="btn_primary cart_btn"
-                                    onClick={() => addToCart(id)}
+                                    onClick={() => {
+                                        addToCart(id)
+                                        closeModal()
+                                    }}
                                     disabled={inCart ? true : false}
                                 >
                                     {inCart ?
@@ -57,14 +60,14 @@ class Detail extends Component {
                                             <i>
                                                 <BsFillCartCheckFill style={{ color: "var(--color-light)" }} />
                                             </i>
-                                            <span>in Cart</span>
+                                            in Cart
                                         </>
                                         ) :
                                         (<>
                                             <i>
                                                 <FaCartPlus />
                                             </i>
-                                            <span>add to cart</span>
+                                            add to cart
                                         </>
                                         )}
                                 </button>
@@ -73,7 +76,18 @@ class Detail extends Component {
                                         <i>
                                             <FaStoreAlt />
                                         </i>
-                                        <span>store</span>
+                                        store
+                                    </Link>
+                                </button>
+                                <button className="btn_primary cart_btn"
+                                    onClick={
+                                        closeModal
+                                    }>
+                                    <Link to={"/cart"}>
+                                        <i>
+                                            <FaLuggageCart />
+                                        </i>
+                                        go to cart
                                     </Link>
                                 </button>
                             </div>

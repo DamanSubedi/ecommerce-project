@@ -35,7 +35,7 @@ export default function Modal() {
                                     <FaTimes />
                                 </button>
                                 <div className="img_container">
-                                    <img className="img_top" src={images[0]} alt={title}/>
+                                    <img className="img_top" src={images[0]} alt={title} />
                                 </div>
 
                                 <h3>{title}</h3>
@@ -59,14 +59,14 @@ export default function Modal() {
                                                 <i>
                                                     <BsFillCartCheckFill style={{ color: "var(--color-light)" }} />
                                                 </i>
-                                                <span>in Cart</span>
+                                                in Cart
                                             </>
                                             ) :
                                             (<>
                                                 <i>
                                                     <FaCartPlus />
                                                 </i>
-                                                <span>add to cart</span>
+                                                add to cart
                                             </>
                                             )}
                                     </button>
@@ -77,7 +77,7 @@ export default function Modal() {
                                         <i>
                                             <FaStoreAlt />
                                         </i>
-                                        <span>store</span>
+                                        store
                                     </button>
                                     <button className="btn_primary cart_btn"
                                         onClick={
@@ -87,8 +87,7 @@ export default function Modal() {
                                             <i>
                                                 <FaLuggageCart />
                                             </i>
-                                            <span>go to cart</span>
-                                        </Link>
+                                            go to cart                                        </Link>
                                     </button>
                                 </div>
 

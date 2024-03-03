@@ -1,9 +1,9 @@
-import React, { Component} from "react";
+import React, { Component } from "react";
 
 import data from '../data'
 
 //importing icons
-import { FaHome, FaCartArrowDown, FaStoreAlt } from "react-icons/fa"
+import { FaHome, FaStoreAlt, FaLuggageCart } from "react-icons/fa"
 import { Link } from "react-router-dom";
 
 
@@ -28,14 +28,13 @@ export default class NavBar extends Component {
                         </div>
                         <div className="link_container">
                             <Link to='/'>
-                                <i> <FaHome /> </i><span>Home</span>
-                            </Link>
+                                <i> <FaHome /> </i><span>Home</span>                            </Link>
                             <Link to='/store'>
                                 <i> <FaStoreAlt /> </i><span>store</span>
                             </Link>
                             <Link to='/cart'>
                                 <i>
-                                    <FaCartArrowDown />
+                                    <FaLuggageCart />
                                 </i><span>cart</span>
                             </Link>
                         </div>
