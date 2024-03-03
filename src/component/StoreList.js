@@ -9,13 +9,14 @@ export default function StoreList() {
 
         <StoreConsumer>
             {value => {
-                const { handleClick, filteredProducts } = value
+                const { handleClick, filteredProducts, selectedItem, addToCart } = value
                 return (
 
 
                     <section className="store_list">
                         <div className="store_list_center">
-                            <Product handleClick={handleClick} products={filteredProducts}/>
+                            <Product handleClick={handleClick} products={filteredProducts}
+                            addToCart={addToCart} selectedItem={selectedItem}/>
                         </div>
                     </section>
                 )

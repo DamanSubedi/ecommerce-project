@@ -5,84 +5,104 @@ import { FaCartPlus, FaStoreAlt } from "react-icons/fa";
 
 // importing css
 import "../index.css"
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import withRouter from "../component/withRouter";
+import Product from "../component/Product";
 
 
-export default class Detail extends Component {
+class Detail extends Component {
+
     static contextType = StoreContext
+    state = {
+        id: this.props.params.id
+    }
+
+
+
+
     render() {
-        const { detailProduct, addToCart } = this.context
+
+        const { getItem, addToCart } = this.context
+        let singleProduct = getItem(Number(this.state.id))
+
+
+        if (!singleProduct) {
+            return (
+                <h1>Loading, please wait !!!</h1>
+            )
+        }
+
+
+
+        const { category, images, id, price, title, description, inCart, defaultImg, openModal } = singleProduct
         return (
             <section className="detail">
                 <div className="detail_container">
 
-                    {
-                        detailProduct.map(item => {
-
-                            const { category, images, id, price, title, description, inCart, defaultImg, openModal } = item
-                            return (
 
 
 
 
-                                <div className="detail_center" key={id}>
-
-                                    <div className="img_container">
-                                        <img className="img_top" src={images[0]} alt={title} />
-                                    </div>
-                                    <div className="product_info">
-
-                                        <h3>{title}</h3>
-                                        <h6>Rs. {price}</h6>
-                                        <h6 >{category}</h6>
-                                        <p>{description}</p>
-
-                                        <div className="modal_btn_container">
 
 
-                                            <button className="btn_primary cart_btn"
-                                                onClick={() => addToCart(id)}
-                                                disabled={inCart ? true : false}
-                                            >
-                                                {inCart ?
-                                                    (<>
-                                                        <i>
-                                                            <BsFillCartCheckFill style={{ color: "var(--color-light)" }} />
-                                                        </i>
-                                                        <span>in Cart</span>
-                                                    </>
-                                                    ) :
-                                                    (<>
-                                                        <i>
-                                                            <FaCartPlus />
-                                                        </i>
-                                                        <span>add to cart</span>
-                                                    </>
-                                                    )}
-                                            </button>
+                    <div className="detail_center" key={id}>
 
-                                            <button className="btn_primary"
+                        <div className="img_container">
+                            <img className="img_top" src={images[0]} alt={title} />
+                        </div>
+                        <div className="product_info">
 
-                                            >
-                                                <Link to='/store'>
-                                                    <i>
-                                                        <FaStoreAlt />
-                                                    </i>
-                                                    <span>store</span>
-                                                </Link>
-                                            </button>
-                                        </div>
-                                    </div>
+                            <h3>{title}</h3>
+                            <h6>Rs. {price}</h6>
+                            <h6 >{category}</h6>
+                            <p>{description}</p>
+
+                            <div className="modal_btn_container">
 
 
+                                <button className="btn_primary cart_btn"
+                                    onClick={() => addToCart(id)}
+                                    disabled={inCart ? true : false}
+                                >
+                                    {inCart ?
+                                        (<>
+                                            <i>
+                                                <BsFillCartCheckFill style={{ color: "var(--color-light)" }} />
+                                            </i>
+                                            <span>in Cart</span>
+                                        </>
+                                        ) :
+                                        (<>
+                                            <i>
+                                                <FaCartPlus />
+                                            </i>
+                                            <span>add to cart</span>
+                                        </>
+                                        )}
+                                </button>
 
-                                </div>
-                            )
+                                <button className="btn_primary"
+
+                                >
+                                    <Link to='/store'>
+                                        <i>
+                                            <FaStoreAlt />
+                                        </i>
+                                        <span>store</span>
+                                    </Link>
+                                </button>
+                            </div>
+                        </div>
 
 
 
-                        })
-                    }
+                    </div>
+
+
+
+
+
+
                 </div>
 
 
@@ -91,3 +111,7 @@ export default class Detail extends Component {
         )
     }
 }
+
+
+export default withRouter(Detail);
+

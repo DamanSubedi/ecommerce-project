@@ -1,6 +1,7 @@
 import React, { Component, createContext } from "react";
 
 import StoreData from '../data'
+import { useParams } from "react-router-dom";
 
 const StoreContext = createContext()
 
@@ -14,17 +15,13 @@ class StoreProvider extends Component {
         detailProduct: [],
         openModal: false,
         cartItems: [],
-        cartTotalAmt: { cartTotal: 0, cartTax: 0 }
+        cartTotalAmt: { cartTotal: 0, cartTax: 0, totalAmt:0}
 
     }
 
     componentDidMount() {
         let data = this.formatData()
         let allCategories = this.gettingUniqueCategories()
-
-
-
-
 
 
         this.setState({
@@ -34,9 +31,7 @@ class StoreProvider extends Component {
         })
     }
 
-    componentWillUnmount() {
-        localStorage.clear()
-    }
+
 
 
     //getting from local storage
@@ -94,11 +89,9 @@ class StoreProvider extends Component {
 
 
     // setting up item for detailed page
-    selectedItem = (id) => {
+    getItem = (id) => {
         let selectedItem = this.state.products.find(item => item.id === id)
-        this.setState({
-            detailProduct: [selectedItem]
-        })
+        return selectedItem
     }
     //adding to the cart
 
@@ -185,8 +178,10 @@ class StoreProvider extends Component {
         let cartTax = 0;
         tax.forEach(t => cartTax += parseInt(t))
 
+        let totalAmt = cartTax + cartTotal
+
         this.setState({
-            cartTotalAmt: { cartTotal, cartTax }
+            cartTotalAmt: { cartTotal, cartTax, totalAmt }
         }, () => console.log(this.state.cartTotalAmt))
     }
 
@@ -210,7 +205,7 @@ class StoreProvider extends Component {
                 handleClick: this.handleClick,
                 addToCart: this.addToCart,
                 closeModal: this.closeModal,
-                selectedItem: this.selectedItem,
+                getItem: this.getItem,
                 increase: this.increase,
                 decrease: this.decrease,
                 removeItem: this.removeItem,
@@ -225,5 +220,25 @@ class StoreProvider extends Component {
 
 const StoreConsumer = StoreContext.Consumer
 
-export { StoreConsumer, StoreProvider, StoreContext }
 
+
+const withStoreConsumer = (PassedComponent) => {
+    const ConsumerWrapper = (children, value) => {
+        const params = useParams()
+
+
+        return (
+            <PassedComponent params={params} value={value} >
+                {children}
+            </PassedComponent>
+        )
+    }
+    return ConsumerWrapper;
+
+}
+
+
+
+
+
+export { StoreConsumer, StoreProvider, StoreContext, withStoreConsumer }

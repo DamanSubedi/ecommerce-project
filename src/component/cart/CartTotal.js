@@ -6,7 +6,7 @@ import { StoreContext } from "../context"
 export default function () {
     const context = useContext(StoreContext)
     const { cartTotalAmt, clearCart } = context
-    const { cartTotal, cartTax } = cartTotalAmt
+    const { cartTotal, cartTax, totalAmt } = cartTotalAmt
     // const {cartTotal, cartTax} = cartTotalAmt
     return (
         <section className="cart_total">
@@ -19,6 +19,8 @@ export default function () {
                     <h6>: Rs {cartTotal}</h6>
                     <h6>tax</h6>
                     <h6>: Rs {cartTax}</h6>
+                    <h6>Total Amount</h6>
+                    <h6>: Rs {totalAmt}</h6>
 
                 </div>
                 <button className="btn_primary cart_btn"

@@ -1,6 +1,6 @@
 
-
 export default function Banner({ title, info, children }) {
+
     return (<>
         <div className="banner">
 
@@ -21,3 +21,5 @@ export default function Banner({ title, info, children }) {
     </>
     )
 }
+
+

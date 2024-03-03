@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { FaCartPlus, FaLuggageCart, FaMoneyBillAlt } from 'react-icons/fa'
 import Modal from "../component/cart/Modal"
 
@@ -6,11 +6,11 @@ import Modal from "../component/cart/Modal"
 import "../index.css"
 
 
-import { StoreConsumer } from "./context"
+import { StoreConsumer, withStoreConsumer } from "./context"
 import { BsCartCheckFill } from "react-icons/bs"
 
 
-export default function Product({ products }) {
+export default function Product({ products, handleClick }) {
     return (
 
 
@@ -19,10 +19,11 @@ export default function Product({ products }) {
                 const { addToCart, openModal, selectedItem } = value
                 return (
                     <>
+
                         {
                             products.map(item => {
 
-                                const { category, images, id, price, title, description, inCart, defaultImg, openModal } = item
+                                const { category, images, id, price, title, description, inCart, defaultImg, openModal, index} = item
                                 return (
 
 
@@ -31,8 +32,8 @@ export default function Product({ products }) {
 
 
                                         <Link className="img_container"
-                                            to='/details'
-                                            onClick={() => selectedItem(id)}
+                                            to={`/store/${id}`}
+                                            
                                         >
                                             <img className="img_top" src={images[0]} alt={title} />
                                         </Link>
@@ -63,11 +64,18 @@ export default function Product({ products }) {
                             })
                         }
 
-                        {/* {openModal && <Modal />} */}
+                        {openModal && <Modal />}
                     </>
+
+
+
                 )
             }}
-        </StoreConsumer >
+        </StoreConsumer>
     )
 }
+
+
+
+
 
