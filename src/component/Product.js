@@ -64,7 +64,7 @@ export default function Product({ products, handleClick }) {
                             })
                         }
 
-                        {openModal && <Modal />}
+                        {/* {openModal && <Modal />} */}
                     </>
 
 
