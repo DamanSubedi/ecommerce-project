@@ -28,9 +28,9 @@ export default function Modal() {
 
 
 
-                            <div className="modal_container product" key={id}>
+                            <div className="modal_container" key={id}>
                                 <button onClick={closeModal}
-                                    className="modal_btn btn_white"
+                                    className="modal_close_btn btn_white"
                                 >
                                     <FaTimes />
                                 </button>
@@ -42,7 +42,7 @@ export default function Modal() {
                                 <h6>Rs. {price}</h6>
                                 <h6 >{category}</h6>
                                 <p>
-                                    {description.substring(0, 100)}...
+                                    {description.substring(0, 70)}...
                                     <Link to='/details' className="btn_white">
                                         see More
                                     </Link>
@@ -72,25 +72,25 @@ export default function Modal() {
                                     </button>
 
                                     <button className="btn_primary"
-                                       onClick={closeModal}
+                                        onClick={closeModal}
                                     >
                                         <i>
                                             <FaStoreAlt />
                                         </i>
                                         <span>store</span>
                                     </button>
+                                    <button className="btn_primary cart_btn"
+                                        onClick={
+                                            closeModal
+                                        }>
+                                        <Link to={"/cart"}>
+                                            <i>
+                                                <FaLuggageCart />
+                                            </i>
+                                            <span>go to cart</span>
+                                        </Link>
+                                    </button>
                                 </div>
-                                <button className="btn_primary cart_btn"
-                                onClick={
-                                    closeModal
-                                }>                          
-                                    <Link to={"/cart"}>
-                                        <i>
-                                            <FaLuggageCart />
-                                        </i>
-                                        <span>go to cart</span>
-                                    </Link>
-                                </button>
 
                             </div>
                         )
