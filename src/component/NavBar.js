@@ -33,6 +33,7 @@ export default class NavBar extends Component {
                                 <i> <FaStoreAlt /> </i><span>store</span>
                             </Link>
                             <Link to='/cart'>
+                                <div className="cart_item_count">2</div>
                                 <i>
                                     <FaLuggageCart />
                                 </i><span>cart</span>
