@@ -175,19 +175,22 @@ input {
 .link_container a:hover {
   color: var(--logo-color);
 }
-.link_container a:nth-of-type(3){
+
+.link_container a:nth-of-type(3) {
   position: relative;
 }
 
-.cart_item_count{
-position: absolute;
-right: 0;
-top: -1rem;
-background: var(--logo-color);
-text-align: center;
-padding: .5rem 1rem;
-border-radius: 50%;
-color: var(--background-light);
+.cart_item_count {
+  position: absolute;
+  height: 2rem;
+  width: 2rem;
+  left: -1rem;
+  top: -1rem;
+  background: var(--logo-color);
+  text-align: center;
+  padding: 0;
+  border-radius: 50%;
+  color: var(--background-light);
 }
 
 /* hero starts here */

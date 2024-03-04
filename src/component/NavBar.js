@@ -6,15 +6,18 @@ import data from '../data'
 import { FaHome, FaStoreAlt, FaLuggageCart } from "react-icons/fa"
 import { Link } from "react-router-dom";
 
-
+import { StoreContext } from "./context";
 
 
 
 
 
 export default class NavBar extends Component {
-
+    static contextType = StoreContext
     render() {
+
+        const {cartTotalAmt, cartItems} = this.context
+        const {totalCount} = cartTotalAmt
 
         return (
             <>
@@ -33,7 +36,7 @@ export default class NavBar extends Component {
                                 <i> <FaStoreAlt /> </i><span>store</span>
                             </Link>
                             <Link to='/cart'>
-                                <div className="cart_item_count">2</div>
+                                {cartItems.length >  0 ? (<div className="cart_item_count">{totalCount}</div> ) : null}
                                 <i>
                                     <FaLuggageCart />
                                 </i><span>cart</span>

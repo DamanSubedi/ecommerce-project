@@ -15,7 +15,7 @@ class StoreProvider extends Component {
         detailProduct: [],
         openModal: false,
         cartItems: [],
-        cartTotalAmt: { cartTotal: 0, cartTax: 0, totalAmt:0}
+        cartTotalAmt: { cartTotal: 0, cartTax: 0, totalAmt:0, totalCount:0}
 
     }
 
@@ -135,7 +135,6 @@ class StoreProvider extends Component {
                 cartItems: [...this.state.cartItems]
             }, () => this.cartTotal())
         }
-
     }
 
     //removing item from cart list
@@ -143,15 +142,12 @@ class StoreProvider extends Component {
     removeItem = (id) => {
         let selectedItem = this.state.cartItems.find((item) => item.id === id)
         selectedItem.inCart = false
-
         let cartItems = this.state.cartItems.filter(item => item.id !== id)
+        // selectedItem.count = 0
+        
         this.setState({
             cartItems: cartItems,
-        }, () => { console.log(this.state.cartItems) })
-
-        console.log(cartItems);
-
-
+        }, () => this.cartTotal())
     }
 
     // closing modal
@@ -165,10 +161,15 @@ class StoreProvider extends Component {
 
     cartTotal = () => {
         let itemTotal = this.state.cartItems.map(item => item.total)
-        // this.setState({
-        //     cartTotal : {...this.state.cartTotal, tempItems}
-        // }, () => console.log(this.state.cartTotal))
         let tax = this.state.cartItems.map(item => item.tax)
+        let count = this.state.cartItems.map(item => item.count)
+
+
+        let totalCount = 0
+        count.forEach(c =>{
+            totalCount += c
+        })
+
 
         let cartTotal = 0;
         itemTotal.forEach(i => {
@@ -181,8 +182,8 @@ class StoreProvider extends Component {
         let totalAmt = cartTax + cartTotal
 
         this.setState({
-            cartTotalAmt: { cartTotal, cartTax, totalAmt }
-        }, () => console.log(this.state.cartTotalAmt))
+            cartTotalAmt: { cartTotal, cartTax, totalAmt, totalCount }
+        })
     }
 
 
@@ -190,6 +191,7 @@ class StoreProvider extends Component {
         this.state.cartItems.map(item => item.inCart = false)
         this.setState({
             cartItems: [],
+            cartTotalAmt : {...this.state.cartTotalAmt, totalCount:0}
         })
     }
 

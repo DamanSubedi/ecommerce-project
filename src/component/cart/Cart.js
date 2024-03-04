@@ -24,7 +24,6 @@ export default function Cart() {
         )
     }
 
-    // console.log(cartItems)
     return (
         <section className="cart">
             <h2>Your Cart</h2>

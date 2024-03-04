@@ -7,7 +7,6 @@ export default function () {
     const context = useContext(StoreContext)
     const { cartTotalAmt, clearCart } = context
     const { cartTotal, cartTax, totalAmt } = cartTotalAmt
-    // const {cartTotal, cartTax} = cartTotalAmt
     return (
         <section className="cart_total">
 
