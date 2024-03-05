@@ -15,8 +15,8 @@ class StoreProvider extends Component {
         detailProduct: [],
         openModal: false,
         cartItems: [],
-        cartTotalAmt: { cartTotal: 0, cartTax: 0, totalAmt:0, totalCount:0}
-
+        cartTotalAmt: { cartTotal: 0, cartTax: 0, totalAmt: 0, totalCount: 0 },
+        scrollHeight: ""
     }
 
     componentDidMount() {
@@ -31,19 +31,29 @@ class StoreProvider extends Component {
         })
     }
 
+    // componentDidUpdate(prevState) {
+    //     if (prevState !== this.state.scrollHeight) {
+    //         // let currentScrollHeight = window.scrollY
+    //         // this.setState({
+    //         //     scrollHeight:`${this.state.scrollHeight}px`
+    //         // }, () => console.log(this.state.scrollHeight))
+    //         console.log(this.state.scrollHeight)
+    //     }
+    // }
+
 
 
 
     //getting from local storage
-    getFromLocalStorage() {
-        let cartItems = localStorage.getItem("cartItem")
-        if (cartItems) {
-            return JSON.parse(cartItems)
-        } else {
-            return []
-        }
+    // getFromLocalStorage() {
+    //     let cartItems = localStorage.getItem("cartItem")
+    //     if (cartItems) {
+    //         return JSON.parse(cartItems)
+    //     } else {
+    //         return []
+    //     }
 
-    }
+    // }
 
     //simplifying array and incart property
     formatData = () => {
@@ -144,7 +154,7 @@ class StoreProvider extends Component {
         selectedItem.inCart = false
         let cartItems = this.state.cartItems.filter(item => item.id !== id)
         // selectedItem.count = 0
-        
+
         this.setState({
             cartItems: cartItems,
         }, () => this.cartTotal())
@@ -159,6 +169,8 @@ class StoreProvider extends Component {
         )
     }
 
+
+    // finding total of cart
     cartTotal = () => {
         let itemTotal = this.state.cartItems.map(item => item.total)
         let tax = this.state.cartItems.map(item => item.tax)
@@ -166,7 +178,7 @@ class StoreProvider extends Component {
 
 
         let totalCount = 0
-        count.forEach(c =>{
+        count.forEach(c => {
             totalCount += c
         })
 
@@ -186,17 +198,29 @@ class StoreProvider extends Component {
         })
     }
 
-
+    // clearing cart
     clearCart = () => {
         this.state.cartItems.map(item => item.inCart = false)
         this.setState({
             cartItems: [],
-            cartTotalAmt : {...this.state.cartTotalAmt, totalCount:0}
+            cartTotalAmt: { ...this.state.cartTotalAmt, totalCount: 0 }
         })
     }
 
 
+    // finding scroll height
+    findScrollHeight = () => {
+        let scrollHeight = window.scrollY
 
+
+        this.setState({
+            scrollHeight
+        })
+    }
+
+    backToTop = () =>{
+        document.documentElement.scrollTop = 0;
+    }
 
 
     render() {
@@ -212,7 +236,9 @@ class StoreProvider extends Component {
                 decrease: this.decrease,
                 removeItem: this.removeItem,
                 cartTotal: this.cartTotal,
-                clearCart: this.clearCart
+                clearCart: this.clearCart,
+                findScrollHeight: this.findScrollHeight,
+                backToTop:this.backToTop
             }}>
                 {this.props.children}
             </StoreContext.Provider>

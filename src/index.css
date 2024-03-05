@@ -124,7 +124,7 @@ input {
 /* navbar */
 .nav {
   min-width: 100vw;
-  background: rgb(255, 236, 236);
+  background: var(--background-light);
   padding-top: 2rem;
   padding-bottom: 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -184,13 +184,15 @@ input {
   position: absolute;
   height: 2rem;
   width: 2rem;
+  font-size: 1.2rem;
   left: -1rem;
   top: -1rem;
   background: var(--logo-color);
-  text-align: center;
   padding: 0;
   border-radius: 50%;
   color: var(--background-light);
+  display: grid;
+  place-items: center;
 }
 
 /* hero starts here */
@@ -332,7 +334,46 @@ input {
   grid-row-gap: 5rem;
 }
 
+.back_to_top {
+  font-size: 2rem;
+  position: fixed;
+  bottom: 8rem;
+  right: 4rem;
+  width: 3rem;
+  height: 3rem;
+  background: var(--default-background);
+  display: grid;
+  place-items: center;
+  border-radius: .5rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  visibility: hidden;
 
+}
+
+.show_back_to_top {
+  visibility: visible;
+  cursor: pointer;
+  animation: 1s linear infinite backToTop;
+}
+
+@keyframes backToTop {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@media screen and (min-width:1024px) {
+  .back_to_top {
+    right: 10%;
+  }
+
+}
 
 /* store list ends here */
 
