@@ -227,10 +227,10 @@ class StoreProvider extends Component {
         }, 3000)
 
     }
-
+// alert function
     showAlert = (type, msg) => {
 
-        setTimeout(() => {
+        setInterval(() => {
             this.setState({
                 alert: { show: true, type, msg }
             })
@@ -242,7 +242,7 @@ class StoreProvider extends Component {
                 alert: { show: false },
 
             }, () => this.clearCart())
-        }, 5000)
+        }, 6000)
 
 
     }
