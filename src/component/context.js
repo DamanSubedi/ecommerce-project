@@ -144,7 +144,7 @@ class StoreProvider extends Component {
         let selectedItem = this.state.cartItems.find((item) => item.id === id)
         selectedItem.inCart = false
         let cartItems = this.state.cartItems.filter(item => item.id !== id)
-        // selectedItem.count = 0
+
 
         this.setState({
             cartItems: cartItems,
@@ -227,10 +227,10 @@ class StoreProvider extends Component {
         }, 3000)
 
     }
-// alert function
+    // alert function
     showAlert = (type, msg) => {
 
-        setInterval(() => {
+        setTimeout(() => {
             this.setState({
                 alert: { show: true, type, msg }
             })
@@ -241,7 +241,8 @@ class StoreProvider extends Component {
             this.setState({
                 alert: { show: false },
 
-            }, () => this.clearCart())
+            }, () =>{this.clearCart()}
+            )
         }, 6000)
 
 
