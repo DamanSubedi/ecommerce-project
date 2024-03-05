@@ -34,18 +34,6 @@ class StoreProvider extends Component {
         })
     }
 
-    // componentDidUpdate(prevState) {
-    //     if (prevState !== this.state.scrollHeight) {
-    //         // let currentScrollHeight = window.scrollY
-    //         // this.setState({
-    //         //     scrollHeight:`${this.state.scrollHeight}px`
-    //         // }, () => console.log(this.state.scrollHeight))
-    //         console.log(this.state.scrollHeight)
-    //     }
-    // }
-
-
-
 
     //getting from local storage
     // getFromLocalStorage() {
@@ -248,7 +236,7 @@ class StoreProvider extends Component {
             })
         }, 2000)
 
-        setTimeout(()=>{
+        setTimeout(() => {
 
             this.setState({
                 alert: { show: false },
