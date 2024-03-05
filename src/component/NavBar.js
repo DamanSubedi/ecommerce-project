@@ -16,12 +16,11 @@ export default class NavBar extends Component {
     static contextType = StoreContext
     render() {
 
-        const {cartTotalAmt, cartItems} = this.context
+        const {cartTotalAmt, cartItems, findScrollHeight, scrollHeight} = this.context
         const {totalCount} = cartTotalAmt
-
         return (
             <>
-                <nav className={`nav`}>
+                <nav className={`${scrollHeight > 94 ? "nav fixed_nav": "nav"}`}>
                     <div className="nav_container">
 
                         <div className="nav_center">

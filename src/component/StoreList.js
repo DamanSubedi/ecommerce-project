@@ -15,7 +15,6 @@ export default function StoreList() {
 
                 document.addEventListener("scroll", findScrollHeight)
 
-                console.log(scrollHeight)
                 return (
 
 

@@ -3,11 +3,12 @@ import { StoreConsumer, StoreContext } from "../context";
 import { Link } from "react-router-dom";
 import CartTotal from "./CartTotal";
 import { FaStoreAlt } from "react-icons/fa"
+import Alert from "../Alert";
 
 
 export default function Cart() {
     const cart = useContext(StoreContext)
-    const { cartItems, increase, decrease, removeItem, cartTotal, clearCart } = cart
+    const { cartItems, increase, decrease, removeItem, cartTotal, clearCart, alert} = cart
     if (cartItems.length < 1) {
         return (<>
             <section className="empty_cart">
@@ -29,21 +30,21 @@ export default function Cart() {
             <h2>Your Cart</h2>
 
             <div className="cart_container">
+               {alert.show && <Alert/>}
                 {cartItems.map(item => {
                     const { id, title, price, tax, total, count, images } = item
                     return (
                         <div className="cart_item" key={id}>
                             <div className="cart_item_center">
-                                <div className="cart_item_info">
-                                    <div className="img_container">
-                                        <img src={images[0]} alt={title} />
-                                    </div>
-                                    <div className="item_info">
-                                        <h3>{title}</h3>
-                                        <h6>price: Rs {price}</h6>
-                                        <h6>total : Rs {total}</h6>
-                                        <h6>tax : {tax}</h6>
-                                    </div>
+
+                                <div className="img_container">
+                                    <img src={images[0]} alt={title} />
+                                </div>
+                                <div className="item_info">
+                                    <h3>{title}</h3>
+                                    <h6>price: Rs {price}</h6>
+                                    <h6>total : Rs {total}</h6>
+                                    <h6>tax : {tax}</h6>
                                 </div>
 
                                 <div className="count_fnc_center">

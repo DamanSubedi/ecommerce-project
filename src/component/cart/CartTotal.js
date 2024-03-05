@@ -2,10 +2,11 @@
 import { useContext } from "react"
 import "../../index.css"
 import { StoreContext } from "../context"
+import Alert from "../Alert"
 
 export default function () {
     const context = useContext(StoreContext)
-    const { cartTotalAmt, clearCart } = context
+    const { cartTotalAmt, clearCart, hideLoader, showLoader, showAlert } = context
     const { cartTotal, cartTax, totalAmt } = cartTotalAmt
     return (
         <section className="cart_total">
@@ -22,8 +23,29 @@ export default function () {
                     <h6>: Rs {totalAmt}</h6>
 
                 </div>
+                <button className="btn_primary cart_btn checkout_btn"
+                    onClick={() => {
+                        showLoader()
+                        showAlert("success", "Thank you!! your order is received successfully")
+                    }
+                    }
+                >
 
+                    {
+                        hideLoader ? (<div>
+                            proceed to checkout
+                        </div>) : (
+
+                            <div className="checkout_loader">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        )
+
+                    }
+                </button>
             </aside>
-        </section>
+        </section >
     )
 }

@@ -16,12 +16,15 @@ class StoreProvider extends Component {
         openModal: false,
         cartItems: [],
         cartTotalAmt: { cartTotal: 0, cartTax: 0, totalAmt: 0, totalCount: 0 },
-        scrollHeight: ""
+        scrollHeight: "",
+        hideLoader: true,
+        alert: { show: false, type: "type", msg: "msg" }
     }
 
     componentDidMount() {
         let data = this.formatData()
         let allCategories = this.gettingUniqueCategories()
+
 
 
         this.setState({
@@ -217,9 +220,43 @@ class StoreProvider extends Component {
             scrollHeight
         })
     }
-
-    backToTop = () =>{
+    // back to top function
+    backToTop = () => {
         document.documentElement.scrollTop = 0;
+    }
+
+    //show loader
+    showLoader = () => {
+
+        this.setState({
+            hideLoader: false
+        })
+
+        setTimeout(() => {
+            this.setState({
+                hideLoader: true
+            })
+        }, 3000)
+
+    }
+
+    showAlert = (type, msg) => {
+
+        setTimeout(() => {
+            this.setState({
+                alert: { show: true, type, msg }
+            })
+        }, 2000)
+
+        setTimeout(()=>{
+
+            this.setState({
+                alert: { show: false },
+
+            }, () => this.clearCart())
+        }, 5000)
+
+
     }
 
 
@@ -238,7 +275,9 @@ class StoreProvider extends Component {
                 cartTotal: this.cartTotal,
                 clearCart: this.clearCart,
                 findScrollHeight: this.findScrollHeight,
-                backToTop:this.backToTop
+                backToTop: this.backToTop,
+                showLoader: this.showLoader,
+                showAlert: this.showAlert
             }}>
                 {this.props.children}
             </StoreContext.Provider>

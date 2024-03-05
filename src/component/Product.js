@@ -6,7 +6,7 @@ import Modal from "../component/cart/Modal"
 import "../index.css"
 
 
-import { StoreConsumer, withStoreConsumer } from "./context"
+import { StoreConsumer } from "./context"
 import { BsCartCheckFill } from "react-icons/bs"
 
 
